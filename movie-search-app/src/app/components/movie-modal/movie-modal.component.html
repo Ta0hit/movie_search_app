@@ -1,0 +1,56 @@
+<div *ngIf="isVisible && movie" class="modal-overlay" (click)="onBackdropClick($event)" (keydown.escape)="onClose()" tabindex="-1">
+  <div class="modal-content">
+    <button class="close-button" (click)="onClose()" aria-label="Close modal">
+      ✕
+    </button>
+
+    <div class="modal-body">
+      <div class="movie-poster-section">
+        <img
+          [src]="getImageUrl(movie.poster_path)"
+          [alt]="movie.title + ' poster'"
+          class="modal-poster"
+          (error)="onImageError($event)"
+        />
+      </div>
+
+      <div class="movie-details-section">
+        <h1 class="movie-title">{{ movie.title }}</h1>
+
+        <div class="movie-meta">
+          <div class="rating-section">
+            <span class="rating-score">{{ movie.vote_average.toFixed(1) }}</span>
+            <span class="rating-votes">({{ formatVoteCount(movie.vote_count) }} votes)</span>
+          </div>
+
+          <div class="release-date">
+            {{ formatReleaseDate(movie.release_date) }}
+          </div>
+        </div>
+
+        <div class="overview-section">
+          <h3>Plot Summary</h3>
+          <p class="full-overview">{{ movie.overview }}</p>
+        </div>
+
+        <div class="additional-info" *ngIf="movie.original_title && movie.original_title !== movie.title">
+          <div class="original-title">
+            <strong>Original Title:</strong> {{ movie.original_title }}
+          </div>
+        </div>
+
+        <div class="additional-info" *ngIf="movie.original_language">
+          <div class="language">
+            <strong>Language:</strong> {{ movie.original_language.toUpperCase() }}
+          </div>
+        </div>
+
+        <div class="additional-info" *ngIf="movie.popularity">
+          <div class="popularity">
+            <strong>Popularity Score:</strong> {{ movie.popularity.toFixed(1) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

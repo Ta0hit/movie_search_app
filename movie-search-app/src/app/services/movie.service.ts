@@ -15,23 +15,23 @@ export class MovieService {
   private readonly mockMovies: Movie[] = [
     {
       id: 1,
-      title: 'The Shawshank Redemption',
-      overview: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-      poster_path: '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
-      release_date: '1994-09-23',
-      vote_average: 9.3,
-      vote_count: 2343110,
-      genre_ids: [18, 80]
+      title: 'Fight Club',
+      overview: 'An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into an anarchist organization.',
+      poster_path: '/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      release_date: '1999-10-15',
+      vote_average: 8.8,
+      vote_count: 2100000,
+      genre_ids: [18, 53]
     },
     {
       id: 2,
-      title: 'The Godfather',
-      overview: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-      poster_path: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
-      release_date: '1972-03-14',
-      vote_average: 9.2,
-      vote_count: 1731428,
-      genre_ids: [18, 80]
+      title: 'Inception',
+      overview: 'A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+      poster_path: '/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
+      release_date: '2010-07-16',
+      vote_average: 8.8,
+      vote_count: 2200000,
+      genre_ids: [28, 878, 53]
     },
     {
       id: 3,
@@ -45,23 +45,13 @@ export class MovieService {
     },
     {
       id: 4,
-      title: 'Pulp Fiction',
-      overview: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
-      poster_path: '/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg',
-      release_date: '1994-09-10',
-      vote_average: 8.9,
-      vote_count: 2056331,
-      genre_ids: [80, 18]
-    },
-    {
-      id: 5,
-      title: 'Forrest Gump',
-      overview: 'The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75.',
-      poster_path: '/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg',
-      release_date: '1994-06-23',
-      vote_average: 8.8,
-      vote_count: 2201123,
-      genre_ids: [35, 18, 10749]
+      title: 'Ocean\'s Eleven',
+      overview: 'Danny Ocean and his ten accomplices plan to rob three Las Vegas casinos simultaneously.',
+      poster_path: '/hQQCdZrsHtZyR6NbKH2YyCqd2fR.jpg',
+      release_date: '2001-12-07',
+      vote_average: 7.8,
+      vote_count: 1800000,
+      genre_ids: [80, 53, 35]
     }
   ];
 

@@ -1,0 +1,22 @@
+<div class="movie-card">
+  <div class="poster-container">
+    <img
+      [src]="getImageUrl(movie.poster_path)"
+      [alt]="movie.title + ' poster'"
+      class="poster"
+      (error)="onImageError($event)"
+    />
+  </div>
+  <div class="movie-info">
+    <h3 class="title">{{ movie.title }}</h3>
+    <div class="rating">
+      <span class="star">⭐</span>
+      <span class="score">{{ movie.vote_average.toFixed(1) }}</span>
+      <span class="votes">({{ formatVoteCount(movie.vote_count) }})</span>
+    </div>
+    <p class="release-date">{{ formatReleaseDate(movie.release_date) }}</p>
+    <button class="view-details-btn" (click)="onCardClick()" (keydown.enter)="onCardClick()">
+      View Details
+    </button>
+  </div>
+</div>

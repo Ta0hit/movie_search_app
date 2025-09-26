@@ -16,8 +16,7 @@ export class SearchBarComponent {
   searchValue = signal<string>('');
 
   onSearchInput(): void {
-    // Optional: Debounced search as user types
-    // For now, we'll only search on enter or button click
+    // todo
   }
 
   onSearch(): void {
