@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../models/movie.interface';
 import { MovieService } from '../../services/movie.service';
@@ -12,13 +12,8 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MovieCardComponent {
   @Input({ required: true }) movie!: Movie;
-  @Output() cardClick = new EventEmitter<Movie>();
 
   constructor(private readonly movieService: MovieService) {}
-
-  onCardClick(): void {
-    this.cardClick.emit(this.movie);
-  }
 
   getImageUrl(posterPath: string | undefined): string {
     return this.movieService.getImageUrl(posterPath);
@@ -43,5 +38,12 @@ export class MovieCardComponent {
       return (count / 1000).toFixed(1) + 'K';
     }
     return count.toString();
+  }
+
+  getShortOverview(overview: string): string {
+    if (overview.length <= 120) {
+      return overview;
+    }
+    return overview.substring(0, 120) + '...';
   }
 }

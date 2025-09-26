@@ -15,8 +15,6 @@
       <span class="votes">({{ formatVoteCount(movie.vote_count) }})</span>
     </div>
     <p class="release-date">{{ formatReleaseDate(movie.release_date) }}</p>
-    <button class="view-details-btn" (click)="onCardClick()" (keydown.enter)="onCardClick()">
-      View Details
-    </button>
+    <p class="overview">{{ getShortOverview(movie.overview) }}</p>
   </div>
 </div>

@@ -26,16 +26,8 @@
     <div class="movies-grid">
       <app-movie-card
         *ngFor="let movie of movies(); trackBy: trackByMovieId"
-        [movie]="movie"
-        (cardClick)="onMovieClick($event)">
+        [movie]="movie">
       </app-movie-card>
     </div>
   }
-
-  <!-- Movie Modal -->
-  <app-movie-modal
-    [movie]="selectedMovie"
-    [isVisible]="isModalVisible"
-    (closeModal)="onCloseModal()">
-  </app-movie-modal>
 </div>

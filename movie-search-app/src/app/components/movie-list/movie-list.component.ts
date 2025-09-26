@@ -1,21 +1,18 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { MovieModalComponent } from '../movie-modal/movie-modal.component';
 import { Movie } from '../../models/movie.interface';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule, MovieCardComponent, MovieModalComponent],
+  imports: [CommonModule, MovieCardComponent],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.css'
 })
 export class MovieListComponent implements OnInit {
   movies = signal<Movie[]>([]);
-  selectedMovie: Movie | null = null;
-  isModalVisible = false;
 
   constructor(public movieService: MovieService) {}
 
@@ -45,15 +42,5 @@ export class MovieListComponent implements OnInit {
 
   trackByMovieId(index: number, movie: Movie): number {
     return movie.id;
-  }
-
-  onMovieClick(movie: Movie): void {
-    this.selectedMovie = movie;
-    this.isModalVisible = true;
-  }
-
-  onCloseModal(): void {
-    this.isModalVisible = false;
-    this.selectedMovie = null;
   }
 }

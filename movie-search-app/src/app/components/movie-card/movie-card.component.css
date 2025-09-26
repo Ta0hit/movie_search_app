@@ -81,38 +81,20 @@
 .release-date {
   color: #666;
   font-size: 0.9rem;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
 }
 
-.view-details-btn {
-  background: #ff6b35;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  align-self: flex-start;
-  min-width: 120px;
-}
-
-.view-details-btn:hover {
-  background: #e55a2b;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
-}
-
-.view-details-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 4px rgba(255, 107, 53, 0.3);
-}
-
-.view-details-btn:focus {
-  outline: 2px solid #ff6b35;
-  outline-offset: 2px;
+.overview {
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .poster-placeholder {

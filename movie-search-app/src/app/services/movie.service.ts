@@ -11,7 +11,7 @@ export class MovieService {
   private readonly apiUrl = 'https://www.omdbapi.com/?i=tt3896198&apikey=a0f591a5';
   private readonly imageUrl = 'https://image.tmdb.org/t/p/w500';
 
-  // Mock data for development
+  // mock data
   private readonly mockMovies: Movie[] = [
     {
       id: 1,
@@ -62,7 +62,6 @@ export class MovieService {
 
   constructor(private readonly http: HttpClient) {}
 
-  // Get popular movies (using mock data for now)
   getPopularMovies(): Observable<MovieResponse> {
     return of({
       page: 1,
@@ -72,7 +71,6 @@ export class MovieService {
     });
   }
 
-  // Search movies by title (filtering mock data for now)
   searchMovies(query: string): Observable<MovieResponse> {
     const filteredMovies = this.mockMovies.filter(movie =>
       movie.title.toLowerCase().includes(query.toLowerCase())
@@ -86,34 +84,20 @@ export class MovieService {
     });
   }
 
-  // Helper method to get full image URL
   getImageUrl(path: string | undefined): string {
     if (!path) return '/assets/no-poster.jpg'; // fallback image
     return this.imageUrl + path;
   }
 
-  // Update movies signal
   updateMovies(movies: Movie[]): void {
     this.movies.set(movies);
   }
 
-  // Set loading state
   setLoading(loading: boolean): void {
     this.loading.set(loading);
   }
 
-  // Set error state
   setError(error: string | null): void {
     this.error.set(error);
-  }
-
-  getPopularMoviesFromAPI(): Observable<MovieResponse> {
-    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`;
-    return this.http.get<MovieResponse>(url);
-  }
-
-  searchMoviesFromAPI(query: string): Observable<MovieResponse> {
-    const url = `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${encodeURIComponent(query)}`;
-    return this.http.get<MovieResponse>(url);
   }
 }
