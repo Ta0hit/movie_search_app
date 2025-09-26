@@ -1,0 +1,41 @@
+<div class="movie-list-container">
+  @if (movieService.loading()) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Loading movies...</p>
+    </div>
+  }
+
+  @if (movieService.error()) {
+    <div class="error-container">
+      <div class="error-icon">⚠️</div>
+      <p>{{ movieService.error() }}</p>
+      <button (click)="loadMovies()" class="retry-button">Try Again</button>
+    </div>
+  }
+
+  @if (!movieService.loading() && !movieService.error() && movies().length === 0) {
+    <div class="empty-container">
+      <div class="empty-icon">🎬</div>
+      <h3>No movies found</h3>
+      <p>Try adjusting your search or check back later.</p>
+    </div>
+  }
+
+  @if (!movieService.loading() && !movieService.error() && movies().length > 0) {
+    <div class="movies-grid">
+      <app-movie-card
+        *ngFor="let movie of movies(); trackBy: trackByMovieId"
+        [movie]="movie"
+        (cardClick)="onMovieClick($event)">
+      </app-movie-card>
+    </div>
+  }
+
+  <!-- Movie Modal -->
+  <app-movie-modal
+    [movie]="selectedMovie"
+    [isVisible]="isModalVisible"
+    (closeModal)="onCloseModal()">
+  </app-movie-modal>
+</div>

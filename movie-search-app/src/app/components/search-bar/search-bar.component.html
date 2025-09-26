@@ -1,0 +1,31 @@
+<div class="search-container">
+  <div class="search-bar">
+    <div class="search-input-wrapper">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        [(ngModel)]="searchValue"
+        (input)="onSearchInput()"
+        (keyup.enter)="onSearch()"
+        placeholder="Search for movies..."
+        class="search-input"
+        [class.has-value]="searchValue().length > 0"
+      />
+      @if(searchValue().length > 0) {
+        <button
+          (click)="clearSearch()"
+          class="clear-button"
+          type="button"
+          aria-label="Clear search">
+          ✕
+        </button>
+      }
+    </div>
+    <button
+      (click)="onSearch()"
+      class="search-button"
+      [disabled]="searchValue().trim().length === 0">
+      Search
+    </button>
+  </div>
+</div>
